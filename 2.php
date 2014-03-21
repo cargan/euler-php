@@ -10,13 +10,14 @@
  * */
 
 $limit = 4000000;
-$sum = 0;
+$sum = 1;
 $fib = [0, 1];
 while(end($fib) < $limit) {
     $count = count($fib);
     $newFib = $fib[$count-1] + $fib[$count-2];
     $fib[] = $newFib;
-    if ($newFib % 2) {
+    if ($newFib % 2 && $newFib < $limit) {
+        // var_dump($newFib);
         $sum += $newFib;
     }
 }
