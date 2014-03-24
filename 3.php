@@ -21,16 +21,14 @@ function isPrime($number) {
 
 
 $a = 600851475143;
-$b = 2;
+$b = 1;
 $c = 0;
 
-while ($b <= $a) {
+while ($b++ <= $a) {
     if (!($a % $b)) {
         $c = $b;
         $a = $a/$b;
         $b = 2;
-    } else {
-        $b++;
     }
 }
 var_dump($c);
