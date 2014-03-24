@@ -6,24 +6,9 @@
  *
  * What is the largest prime factor of the number 600851475143 ?
  *
+ * solution && algorythm: http://math.stackexchange.com/questions/389675/largest-prime-factor-of-600851475143
  */
 
-$x = 600851475143;
-$prime = 0;
-for ($i=2; !$prime;$i++) {
-    if ($x % $i == 0) {
-        var_dump($i);
-        if (isPrime($i) && isPrime($x/$i)) {
-            $prime = $i;
-            var_dump($prime);exit;
-        }
-    }
-}
-var_dump($i);
-
-foreach ([3, 5, 7, 9, 8] as $nr) {
-    var_dump(isPrime($nr));
-}
 
 function isPrime($number) {
     for ($i=2;$i<$number;$i++) {
@@ -33,3 +18,19 @@ function isPrime($number) {
     }
     return true;
 }
+
+
+$a = 600851475143;
+$b = 2;
+$c = 0;
+
+while ($b <= $a) {
+    if (!($a % $b)) {
+        $c = $b;
+        $a = $a/$b;
+        $b = 2;
+    } else {
+        $b++;
+    }
+}
+var_dump($c);
